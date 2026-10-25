@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Understory",
+    "mediums": ["Mixed Media"],
+    "image": "/images/sample-understory.jpg",
+    "material": "Mixed media study",
+    "description": "A sample study of layered color and botanical forms. Generated placeholder artwork.",
+    "placeholder": true
+  },
+  {
+    "title": "Poppy at Noon",
+    "mediums": ["Acrylic Painting"],
+    "image": "/images/sample-poppy.jpg",
+    "material": "Acrylic study",
+    "description": "A bright floral study in red and gold. Generated placeholder artwork.",
+    "placeholder": true
+  },
+  {
+    "title": "Fern & Fable",
+    "mediums": ["Woodburning"],
+    "image": "/images/sample-fern.jpg",
+    "material": "Woodburning study",
+    "description": "Botanical lines on a warm wood surface. Generated placeholder artwork.",
+    "placeholder": true
+  },
+  {
+    "title": "A Little Wild",
+    "mediums": ["Pastels"],
+    "image": "/images/sample-wild.jpg",
+    "material": "Pastel study",
+    "description": "A meadow study with soft color and texture. Generated placeholder artwork.",
+    "placeholder": true
+  },
+  {
+    "title": "Mushroom Season",
+    "mediums": ["Illustration"],
+    "image": "/images/sample-mushroom.jpg",
+    "material": "Illustration study",
+    "description": "A woodland-inspired drawing study. Generated placeholder artwork.",
+    "placeholder": true
+  }
+]
