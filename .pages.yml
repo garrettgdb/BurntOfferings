@@ -1,0 +1,249 @@
+media:
+  input: images
+  output: /images
+  rename: safe
+  extensions: [jpg, jpeg, png, webp, gif]
+
+content:
+  - name: artworks
+    label: Artwork
+    type: file
+    path: content/artworks.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+        options:
+          maxlength: 200
+      - name: mediums
+        label: Medium(s)
+        type: select
+        required: true
+        description: Choose every medium this piece belongs under.
+        options:
+          multiple: true
+          values: [Mixed Media, Acrylic Painting, Woodburning, Pastels, Illustration]
+      - name: image
+        label: Photo
+        type: image
+        required: true
+        description: Tip - export photos at about 2000 px on the long edge (under 1 MB) so the site stays fast.
+      - name: material
+        label: Materials line
+        type: string
+        description: Short line shown under the title, e.g. Acrylic on canvas, 12 x 16 in.
+        options:
+          maxlength: 500
+      - name: description
+        label: Field note
+        type: text
+        description: Shown when a visitor taps "Read field note".
+        options:
+          maxlength: 4000
+      - name: placeholder
+        label: Placeholder image
+        type: boolean
+        description: Turn on only for sample images that are not real artwork. Turn it off (or delete the entry) for real pieces.
+
+  - name: settings
+    label: Site settings
+    type: file
+    path: content/settings.json
+    format: json
+    fields:
+      - name: siteName
+        label: Site name
+        type: string
+        required: true
+        options:
+          maxlength: 100
+      - name: tagline
+        label: Tagline
+        type: string
+        required: true
+        options:
+          maxlength: 120
+      - name: heroTitle
+        label: Home page headline
+        type: string
+        required: true
+        options:
+          maxlength: 200
+      - name: heroDescription
+        label: Home page intro
+        type: text
+        options:
+          maxlength: 2000
+      - name: aboutTitle
+        label: About page heading
+        type: string
+        required: true
+        options:
+          maxlength: 200
+      - name: aboutText
+        label: About page text
+        type: text
+        description: Leave a blank line between paragraphs.
+        options:
+          maxlength: 10000
+      - name: contactText
+        label: Contact page text
+        type: text
+        options:
+          maxlength: 4000
+      - name: contactEmail
+        label: Contact email
+        type: string
+        description: Leave blank to hide the email link.
+        pattern:
+          regex: "^$|^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$"
+          message: Enter a valid email address, or leave this blank.
+      - name: mediums
+        label: Medium tabs (order)
+        type: string
+        list: true
+        description: The tabs on the home page, in order. Names must match the choices in each artwork's Medium(s) field.
+      - name: imageDisplaySeconds
+        label: Seconds each image shows
+        type: number
+        options:
+          min: 1
+          max: 30
+      - name: textSizePercent
+        label: Text size (percent)
+        type: number
+        description: 100 is the normal size. Allowed range 80 to 150.
+        options:
+          min: 80
+          max: 150
+      - name: backgroundColor
+        label: Page background color
+        type: select
+        description: Main page background.
+        options:
+          values:
+            - name: "#efe9d7"
+              label: Cream
+            - name: "#f3eedf"
+              label: Parchment
+            - name: "#ded8c4"
+              label: Linen
+            - name: "#e7e8d7"
+              label: Sage mist
+            - name: "#ffffff"
+              label: White
+            - name: "#291f30"
+              label: Plum
+            - name: "#1f1a22"
+              label: Charcoal
+            - name: "#233b33"
+              label: Deep green
+            - name: "#3a5146"
+              label: Moss
+            - name: "#873b42"
+              label: Oxblood
+            - name: "#bb4e3b"
+              label: Rust
+            - name: "#c9ca72"
+              label: Citron
+            - name: "#000000"
+              label: Black
+      - name: headerBackgroundColor
+        label: Header band color
+        type: select
+        description: The large band behind the home headline and page titles.
+        options:
+          values:
+            - name: "#efe9d7"
+              label: Cream
+            - name: "#f3eedf"
+              label: Parchment
+            - name: "#ded8c4"
+              label: Linen
+            - name: "#e7e8d7"
+              label: Sage mist
+            - name: "#ffffff"
+              label: White
+            - name: "#291f30"
+              label: Plum
+            - name: "#1f1a22"
+              label: Charcoal
+            - name: "#233b33"
+              label: Deep green
+            - name: "#3a5146"
+              label: Moss
+            - name: "#873b42"
+              label: Oxblood
+            - name: "#bb4e3b"
+              label: Rust
+            - name: "#c9ca72"
+              label: Citron
+            - name: "#000000"
+              label: Black
+      - name: textColor
+        label: Text color
+        type: select
+        description: Body text on the page background.
+        options:
+          values:
+            - name: "#efe9d7"
+              label: Cream
+            - name: "#f3eedf"
+              label: Parchment
+            - name: "#ded8c4"
+              label: Linen
+            - name: "#e7e8d7"
+              label: Sage mist
+            - name: "#ffffff"
+              label: White
+            - name: "#291f30"
+              label: Plum
+            - name: "#1f1a22"
+              label: Charcoal
+            - name: "#233b33"
+              label: Deep green
+            - name: "#3a5146"
+              label: Moss
+            - name: "#873b42"
+              label: Oxblood
+            - name: "#bb4e3b"
+              label: Rust
+            - name: "#c9ca72"
+              label: Citron
+            - name: "#000000"
+              label: Black
+      - name: headerTextColor
+        label: Header text color
+        type: select
+        description: Text on the header band. Pick a light color for a dark band.
+        options:
+          values:
+            - name: "#efe9d7"
+              label: Cream
+            - name: "#f3eedf"
+              label: Parchment
+            - name: "#ded8c4"
+              label: Linen
+            - name: "#e7e8d7"
+              label: Sage mist
+            - name: "#ffffff"
+              label: White
+            - name: "#291f30"
+              label: Plum
+            - name: "#1f1a22"
+              label: Charcoal
+            - name: "#233b33"
+              label: Deep green
+            - name: "#3a5146"
+              label: Moss
+            - name: "#873b42"
+              label: Oxblood
+            - name: "#bb4e3b"
+              label: Rust
+            - name: "#c9ca72"
+              label: Citron
+            - name: "#000000"
+              label: Black
