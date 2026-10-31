@@ -1,17 +1,23 @@
 {
-  "siteName": "Burnt Offerings Art",
+  "mediums": [
+    "Mixed Media",
+    "Acrylic Painting",
+    "Woodburning",
+    "Pastels",
+    "Illustration"
+  ],
   "tagline": "Artist · Maker",
-  "heroTitle": "Burnt Offerings Art",
-  "heroDescription": "Art by Brittany Hunter, across woodburning, acrylic painting, pastels, mixed media, illustration, and more.",
-  "aboutTitle": "A practice made of curiosity.",
+  "siteName": "Burnt Offerings Art",
   "aboutText": "Explore Brittany Hunter’s work across five disciplines. This space brings together artwork, materials and notes on the creative process. A personal artist biography will be added here.",
-  "contactEmail": "",
-  "contactText": "Custom orders, commissions, prints, and other questions.",
-  "imageDisplaySeconds": 3,
-  "textSizePercent": 100,
-  "backgroundColor": "#efe9d7",
-  "headerBackgroundColor": "#291f30",
+  "heroTitle": "Burnt Offerings Art",
   "textColor": "#291f30",
+  "aboutTitle": "A practice made of curiosity.",
+  "contactText": "Custom orders, commissions, prints, and other questions.",
+  "contactEmail": "",
+  "backgroundColor": "#efe9d7",
   "headerTextColor": "#efe9d7",
-  "mediums": ["Mixed Media", "Acrylic Painting", "Woodburning", "Pastels", "Illustration"]
+  "heroDescription": "Art by Brittany Hunter, across woodburning, acrylic painting, pastels, mixed media, illustration, and more.",
+  "textSizePercent": 100,
+  "imageDisplaySeconds": 3,
+  "headerBackgroundColor": "#291f30"
 }
