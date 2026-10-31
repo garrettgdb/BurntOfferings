@@ -63,7 +63,7 @@
   };
   const field = (l, n, v, x = '') => `<label>${l}<input name="${n}" value="${esc(v)}" ${x}></label>`;
   const area = (l, n, v, r = 3) => `<label>${l}<textarea name="${n}" rows="${r}">${esc(v)}</textarea></label>`;
-  const color = (l, n, v) => `<label>${l}<br><input type="color" name="${n}" value="${esc(v)}"></label>`;
+  const color = (l, n, v) => `<div class="crow"><label>${l}<br><input type="color" name="${n}" value="${esc(v)}"></label><button type="button" data-act="reset" data-field="${n}">Reset</button></div>`;
 
   const loginView = () => `<h1>Studio</h1><p>Sign in to edit the site.</p><form id="login" class="card">
     <label>Email<input name="email" type="email" autocomplete="username" required></label>
@@ -88,6 +88,7 @@
     <div id="prev" class="prev"><div>Header band</div><p>Body text on the page background</p></div>
     ${color('Page background', 'backgroundColor', s.backgroundColor)}${color('Header band', 'headerBackgroundColor', s.headerBackgroundColor)}
     ${color('Text color', 'textColor', s.textColor)}${color('Header text color', 'headerTextColor', s.headerTextColor)}
+    <p><button type="button" data-act="resetall">Reset all colors to defaults</button></p>
     <label>Text size: <output id="sz">${esc(s.textSizePercent)}</output>%<input type="range" name="textSizePercent" min="80" max="150" value="${esc(s.textSizePercent)}"></label>
     ${field('Seconds each image shows', 'imageDisplaySeconds', s.imageDisplaySeconds, 'type="number" min="1" max="30"')}
     ${field('Site name', 'siteName', s.siteName)}${field('Tagline', 'tagline', s.tagline)}${field('Home page headline', 'heroTitle', s.heroTitle)}
@@ -118,6 +119,11 @@
   app.addEventListener('click', (e) => {
     const b = e.target.closest('[data-act]'); if (!b) return;
     const { act, id, tab } = b.dataset;
+    if (act === 'reset' || act === 'resetall') {
+      const f = $('#setform'); if (!f) return;
+      (act === 'reset' ? [b.dataset.field] : ['backgroundColor', 'headerBackgroundColor', 'textColor', 'headerTextColor']).forEach((n) => { f.elements[n].value = DEF[n]; f.elements[n].dispatchEvent(new Event('input', { bubbles: true })); });
+      flash('Colors reset. Click “Save settings” to keep the change.'); return;
+    }
     if (act === 'out') { localStorage.removeItem('bha_session'); session = null; S.note = null; render(); }
     else if (act === 'tab') { S.tab = tab; S.form = null; S.note = null; render(); }
     else if (act === 'new') { S.form = { mediums: [S.settings.mediums[0]] }; S.note = null; render(); }
