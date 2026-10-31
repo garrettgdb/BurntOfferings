@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 60" role="img" aria-label="Burnt Offerings Art">
+  <rect width="192" height="60" rx="6" fill="#f1ebd8"/>
+  <path d="M20 8h40v44H20z" fill="#291f30"/>
+  <path d="M27 17h25v2H27zm0 6h20v2H27zm0 6h24v2H27zm0 6h18v2H27zm0 6h24v2H27z" fill="#c9ca72"/>
+  <text x="69" y="29" fill="#291f30" font-family="Georgia,serif" font-size="16" font-weight="bold">BURNT</text>
+  <text x="69" y="47" fill="#873b42" font-family="Georgia,serif" font-size="15" font-style="italic">OFFERINGS ART</text>
+</svg>
