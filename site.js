@@ -185,31 +185,31 @@
       [...list.querySelectorAll('.material')].forEach((b, i) => b.setAttribute('aria-pressed', String(s.mediums[i] === state.medium)));
     };
 
-    // Cross-fade to a new image without blanking the stage.
+    // Cross-fade to a new image. The new image is only added to the page once it has fully
+    // loaded, and every earlier image is retired at that moment, so nothing can get stuck.
     const showImage = (stage, work) => {
       const url = imageUrl(work.image);
-      const current = $('img.artwork-current', stage);
-      if (current && current.dataset.src === url) { current.alt = work.title; return; }
-      const token = ++loadToken;
-      const img = el('img', { className: 'artwork-current', alt: work.title, decoding: 'async' });
+      const shown = stage.querySelector('img.artwork-current');
+      const token = ++loadToken; // any slower, older request is now cancelled
+      if (shown && shown.dataset.src === url) { shown.alt = work.title; return; }
+      const img = new Image();
+      img.decoding = 'async';
+      img.alt = work.title;
       img.dataset.src = url;
-      img.style.opacity = '0';
       img.onload = async () => {
         try { await img.decode(); } catch (e) { /* still usable */ }
-        if (token !== loadToken) { img.remove(); return; }
-        stage.querySelectorAll('img.artwork-outgoing').forEach((o) => o.remove());
-        if (current) {
-          current.classList.replace('artwork-current', 'artwork-outgoing');
-          current.alt = '';
-          current.setAttribute('aria-hidden', 'true');
-          setTimeout(() => current.remove(), 500);
-        }
-        img.style.opacity = '';
-        img.classList.add('fade-in');
+        if (token !== loadToken || !stage.isConnected) return;
+        stage.querySelectorAll('img.artwork-current, img.artwork-outgoing').forEach((old) => {
+          old.classList.remove('artwork-current');
+          old.classList.add('artwork-outgoing');
+          old.alt = '';
+          old.setAttribute('aria-hidden', 'true');
+          setTimeout(() => old.remove(), 500);
+        });
+        img.className = 'artwork-current fade-in';
+        stage.prepend(img);
       };
-      img.onerror = () => { if (token === loadToken) img.remove(); };
       img.src = url;
-      stage.prepend(img);
     };
 
     const preloadNext = (items, i) => {
