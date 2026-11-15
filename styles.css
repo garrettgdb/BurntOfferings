@@ -179,3 +179,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid #bb4e3b; outline-offs
 
 /* Corner labels over the artwork are hidden (stamp and caption). */
 .specimen-stamp, .image-caption { display: none; }
+
+/* Hidden: the "Entry 01 / Read field note" line, the 01 / 05 counter, and the period after each title. */
+.specimen-top, .image-index { display: none; }
+.specimen-caption h2 span { display: none; }
