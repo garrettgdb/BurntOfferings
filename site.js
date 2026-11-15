@@ -194,14 +194,15 @@
       const img = el('img', { className: 'artwork-current', alt: work.title, decoding: 'async' });
       img.dataset.src = url;
       img.style.opacity = '0';
-      img.onload = () => {
+      img.onload = async () => {
+        try { await img.decode(); } catch (e) { /* still usable */ }
         if (token !== loadToken) { img.remove(); return; }
         stage.querySelectorAll('img.artwork-outgoing').forEach((o) => o.remove());
         if (current) {
           current.classList.replace('artwork-current', 'artwork-outgoing');
           current.alt = '';
           current.setAttribute('aria-hidden', 'true');
-          setTimeout(() => current.remove(), 750);
+          setTimeout(() => current.remove(), 500);
         }
         img.style.opacity = '';
         img.classList.add('fade-in');
