@@ -13,6 +13,7 @@
   --nav-bg: color-mix(in srgb, var(--paper) 55%, white);
   --red: #873b42;
   --citron: #c9ca72;
+  --active: #873b42;
 
   --font-sans: 'DM Sans', sans-serif;
   --font-serif: 'Playfair Display', Georgia, serif;
@@ -66,7 +67,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid #bb4e3b; outline-offs
 .material { width: 100%; min-width: 0; min-height: 54px; display: grid; grid-template-columns: 25px 1fr 17px; align-items: center; gap: 10px; padding: 10px 9px 10px 0; border: 0; border-top: 1px solid var(--rule); background: transparent; color: var(--ink); text-align: left; cursor: pointer; transition: color .2s, padding .25s; }
 .material:last-of-type { border-bottom: 1px solid var(--rule); }
 .material:hover { padding-left: 5px; }
-.material.is-active { color: var(--red); }
+.material.is-active { color: var(--active); }
 .material-index, .material-count { color: var(--muted); font: var(--micro) var(--font-mono); }
 .material-name { font: 600 calc(14px * var(--text-scale)) 'Syne', var(--font-sans); overflow-wrap: anywhere; }
 
