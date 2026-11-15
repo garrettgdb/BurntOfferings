@@ -176,5 +176,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid #bb4e3b; outline-offs
   .footer { grid-template-columns: 1fr; padding: 28px 22px 16px; }
   .copyright { grid-column: 1; text-align: left; }
 }
-.art-stage { background: color-mix(in srgb, var(--header-background) 88%, white); }
+.art-stage { background: transparent; }
 .art-stage > img { object-fit: contain; }
+.specimen-stamp, .image-caption { background: rgba(41, 31, 48, .55); }
+.image-caption { padding: 4px 8px; text-shadow: none; }
