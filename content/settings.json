@@ -1,23 +1,23 @@
 {
   "mediums": [
-    "Mixed Media",
-    "Acrylic Painting",
     "Woodburning",
+    "Acrylic Painting",
     "Pastels",
-    "Illustration"
+    "Scratchboard",
+    "Illustrations"
   ],
   "tagline": "Artist · Maker",
   "siteName": "Burnt Offerings Art",
-  "aboutText": "Explore Brittany Hunter’s work across five disciplines. This space brings together artwork, materials and notes on the creative process. A personal artist biography will be added here.",
+  "aboutText": "Brittany Hunter is an aspiring retiree and local Big Bear artist. She dabbles in wood burning, acrylics, and pastels. Brittany is a Jersey transplant and believes Bigfoot is closer than you think and Halloween should be year round.",
   "heroTitle": "Burnt Offerings Art",
-  "textColor": "#291f30",
+  "textColor": "#e8eed8",
   "aboutTitle": "A practice made of curiosity.",
   "contactText": "Custom orders, commissions, prints, and other questions.",
-  "contactEmail": "",
-  "backgroundColor": "#efe9d7",
+  "contactEmail": "brittanyahunter1@gmail.com",
+  "backgroundColor": "#000000",
   "headerTextColor": "#efe9d7",
-  "heroDescription": "Art by Brittany Hunter, across woodburning, acrylic painting, pastels, mixed media, illustration, and more.",
-  "textSizePercent": 100,
+  "heroDescription": "Art by B Hunter, across woodburning, acrylic painting, pastels, mixed media, illustration, and more.",
+  "textSizePercent": 96,
   "imageDisplaySeconds": 3,
-  "headerBackgroundColor": "#291f30"
+  "headerBackgroundColor": "#000000"
 }

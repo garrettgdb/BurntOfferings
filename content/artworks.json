@@ -1,52 +1,222 @@
 [
   {
-    "title": "Understory",
+    "title": "Mountains on the Moon",
     "mediums": [
-      "Mixed Media"
+      "Scratchboard"
     ],
-    "image": "/images/sample-understory.jpg",
-    "material": "Mixed media study",
-    "description": "A sample study of layered color and botanical forms. Generated placeholder artwork.",
-    "placeholder": true
+    "image": "images/synced/1794756076882-mountains-on-the-moon.jpg",
+    "material": "Scratchboard",
+    "description": "",
+    "placeholder": false
   },
   {
-    "title": "Poppy at Noon",
+    "title": "Observatory in Mono",
     "mediums": [
-      "Acrylic Painting"
+      "Illustrations"
     ],
-    "image": "/images/sample-poppy.jpg",
-    "material": "Acrylic study",
-    "description": "A bright floral study in red and gold. Generated placeholder artwork.",
-    "placeholder": true
+    "image": "images/synced/1794756352919-poppy-at-noon.jpg",
+    "material": "Paper and pens",
+    "description": "They stare at the sun all day ",
+    "placeholder": false
   },
   {
-    "title": "Fern & Fable",
-    "mediums": [
-      "Woodburning"
-    ],
-    "image": "/images/sample-fern.jpg",
-    "material": "Woodburning study",
-    "description": "Botanical lines on a warm wood surface. Generated placeholder artwork.",
-    "placeholder": true
-  },
-  {
-    "title": "A Little Wild",
+    "title": "Pug in Pink",
     "mediums": [
       "Pastels"
     ],
-    "image": "/images/sample-wild.jpg",
-    "material": "Pastel study",
-    "description": "A meadow study with soft color and texture. Generated placeholder artwork.",
-    "placeholder": true
+    "image": "images/synced/1794756605901-pug-in-pink.jpg",
+    "material": "Oil Pastel",
+    "description": "He was a cute but naughty subject",
+    "placeholder": false
   },
   {
-    "title": "Mushroom Season",
+    "title": "Graveyard Egret",
     "mediums": [
-      "Illustration"
+      "Acrylic Painting"
     ],
-    "image": "/images/sample-mushroom.jpg",
-    "material": "Illustration study",
-    "description": "A woodland-inspired drawing study. Generated placeholder artwork.",
-    "placeholder": true
+    "image": "images/synced/1794756706893-graveyard-egret.jpg",
+    "material": "Acrylic on Canvas",
+    "description": "",
+    "placeholder": false
+  },
+  {
+    "title": "Mystic Mountain",
+    "mediums": [
+      "Woodburning"
+    ],
+    "image": "images/synced/1794756802376-mystic-mountain.jpg",
+    "material": "Woodburning ",
+    "description": "",
+    "placeholder": false
+  },
+  {
+    "title": "South for the Winter",
+    "mediums": [
+      "Woodburning"
+    ],
+    "image": "images/synced/1794756866858-south-for-the-winter.jpg",
+    "material": "Woodburning ",
+    "description": "",
+    "placeholder": false
+  },
+  {
+    "title": "Dolla on the Shore",
+    "mediums": [
+      "Acrylic Painting"
+    ],
+    "image": "images/synced/1794757106964-dolla-on-the-shore.jpg",
+    "material": "Acrylic on Canvas",
+    "description": "",
+    "placeholder": false
+  },
+  {
+    "title": "Westport's End",
+    "mediums": [
+      "Acrylic Painting"
+    ],
+    "image": "images/synced/1794757193474-westport-s-end.jpg",
+    "material": "Acrylic on Canvas",
+    "description": "",
+    "placeholder": false
+  },
+  {
+    "title": "Desert Highrise",
+    "mediums": [
+      "Woodburning"
+    ],
+    "image": "images/synced/1794757356687-desert-highrise.jpg",
+    "material": "Woodburning and Acrylic",
+    "description": "",
+    "placeholder": false
+  },
+  {
+    "title": "Nature's Thumbprint",
+    "mediums": [
+      "Woodburning"
+    ],
+    "image": "images/synced/1794757435496-nature-s-thumbprint.jpg",
+    "material": "Woodburning and Acrylic",
+    "description": "",
+    "placeholder": false
+  },
+  {
+    "title": "Next Stop Saturn",
+    "mediums": [
+      "Woodburning"
+    ],
+    "image": "images/synced/1794757507500-next-stop-saturn.jpg",
+    "material": "Woodburning ",
+    "description": "",
+    "placeholder": false
+  },
+  {
+    "title": "Apocalypse Sunset",
+    "mediums": [
+      "Acrylic Painting"
+    ],
+    "image": "images/synced/1794757607415-apocalypse-sunset.jpg",
+    "material": "Acrylic on Canvas",
+    "description": "Upside to the world ending, it might be pretty",
+    "placeholder": false
+  },
+  {
+    "title": "Desert Daze",
+    "mediums": [
+      "Pastels"
+    ],
+    "image": "images/synced/1794757683793-desert-daze.jpg",
+    "material": "Oil Pastel",
+    "description": "",
+    "placeholder": false
+  },
+  {
+    "title": "Canyonlands",
+    "mediums": [
+      "Woodburning"
+    ],
+    "image": "images/synced/1794757764081-canyonlands.jpg",
+    "material": "Woodburning and Woodcarving",
+    "description": "",
+    "placeholder": false
+  },
+  {
+    "title": "Primrose on Pluto",
+    "mediums": [
+      "Woodburning"
+    ],
+    "image": "images/synced/1794758020533-primrose-on-pluto.jpg",
+    "material": "Woodburning with Stain",
+    "description": "They say Pluto doesn't have flowers but they don't really know",
+    "placeholder": false
+  },
+  {
+    "title": "View from the Toilet",
+    "mediums": [
+      "Acrylic Painting"
+    ],
+    "image": "images/synced/1794758263944-view-from-the-toilet.jpg",
+    "material": "Acrylic on Canvas",
+    "description": "",
+    "placeholder": false
+  },
+  {
+    "title": "Observatory at Dusk",
+    "mediums": [
+      "Pastels"
+    ],
+    "image": "images/synced/1794758389434-observatory-at-dusk.jpg",
+    "material": "Oil Pastel",
+    "description": "",
+    "placeholder": false
+  },
+  {
+    "title": "Rainier from Above",
+    "mediums": [
+      "Pastels"
+    ],
+    "image": "images/synced/1794758472603-rainier-from-above.jpg",
+    "material": "Oil Pastel",
+    "description": "",
+    "placeholder": false
+  },
+  {
+    "title": "The Town that Dreaded Sundown",
+    "mediums": [
+      "Woodburning"
+    ],
+    "image": "images/synced/1794758528136-the-town-that-dreaded-sundown.jpg",
+    "material": "Woodburning ",
+    "description": "",
+    "placeholder": false
+  },
+  {
+    "title": "Leef",
+    "mediums": [
+      "Woodburning"
+    ],
+    "image": "images/synced/1794758623459-leef.jpg",
+    "material": "Woodburning with Stain",
+    "description": "",
+    "placeholder": false
+  },
+  {
+    "title": "West of Eden",
+    "mediums": [
+      "Woodburning"
+    ],
+    "image": "images/synced/1794758754893-west-of-eden.jpg",
+    "material": "Woodburning with Acrylic",
+    "description": "",
+    "placeholder": false
+  },
+  {
+    "title": "Surfside Sailing",
+    "mediums": [
+      "Woodburning"
+    ],
+    "image": "images/synced/1794758876462-surfside-sailing.jpg",
+    "material": "Woodburning and Acrylic",
+    "description": "",
+    "placeholder": false
   }
 ]
