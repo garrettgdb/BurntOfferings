@@ -77,8 +77,8 @@ button:focus-visible, a:focus-visible { outline: 2px solid #bb4e3b; outline-offs
 .note-toggle { border: 0; padding: 0; background: transparent; color: var(--red); cursor: pointer; font: var(--micro) var(--font-mono); letter-spacing: .06em; text-transform: uppercase; }
 .note-toggle b { margin-left: 7px; color: var(--ink); font: 400 14px var(--font-serif); }
 
-.art-stage { position: relative; height: clamp(270px, 30vw, 385px); overflow: hidden; background: #4a3a48; }
-.art-stage > img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+.art-stage { position: relative; height: clamp(270px, 30vw, 385px); overflow: hidden; background: transparent; }
+.art-stage > img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
 .art-stage > img.artwork-outgoing { z-index: 1; animation: photo-out .7s ease both; }
 .art-stage > img.artwork-current { z-index: 2; }
 .art-stage > img.fade-in { animation: photo-in .7s ease both; }
@@ -176,7 +176,6 @@ button:focus-visible, a:focus-visible { outline: 2px solid #bb4e3b; outline-offs
   .footer { grid-template-columns: 1fr; padding: 28px 22px 16px; }
   .copyright { grid-column: 1; text-align: left; }
 }
-.art-stage { background: transparent; }
-.art-stage > img { object-fit: contain; }
-.specimen-stamp, .image-caption { background: rgba(41, 31, 48, .55); }
-.image-caption { padding: 4px 8px; text-shadow: none; }
+
+/* Corner labels over the artwork are hidden (stamp and caption). */
+.specimen-stamp, .image-caption { display: none; }
