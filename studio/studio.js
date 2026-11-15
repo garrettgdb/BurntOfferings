@@ -8,7 +8,7 @@
   const $ = (s) => document.querySelector(s);
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const parse = (t) => { try { return JSON.parse(t); } catch (e) { return null; } };
-  const DEF = { siteName: 'Burnt Offerings Art', tagline: 'Artist · Maker', heroTitle: 'Burnt Offerings Art', heroDescription: '', aboutTitle: 'A practice made of curiosity.', aboutText: '', contactText: '', contactEmail: '', imageDisplaySeconds: 3, textSizePercent: 100, backgroundColor: '#efe9d7', headerBackgroundColor: '#291f30', textColor: '#291f30', headerTextColor: '#efe9d7', mediums: ['Mixed Media', 'Acrylic Painting', 'Woodburning', 'Pastels', 'Illustration'] };
+  const DEF = { siteName: 'Burnt Offerings Art', tagline: 'Artist · Maker', heroTitle: 'Burnt Offerings Art', heroDescription: '', aboutTitle: 'A practice made of curiosity.', aboutText: '', contactText: '', contactEmail: '', imageDisplaySeconds: 3, textSizePercent: 100, backgroundColor: '#efe9d7', headerBackgroundColor: '#291f30', textColor: '#291f30', headerTextColor: '#efe9d7', activeColor: '#873b42', mediums: ['Mixed Media', 'Acrylic Painting', 'Woodburning', 'Pastels', 'Illustration'] };
   let session = parse(localStorage.getItem('bha_session'));
   const S = { tab: 'art', settings: { ...DEF }, art: [], form: null, note: null };
 
@@ -87,7 +87,7 @@
   const setForm = () => { const s = S.settings; return `<form id="setform" class="card wide">
     <div id="prev" class="prev"><div>Header band</div><p>Body text on the page background</p></div>
     ${color('Page background', 'backgroundColor', s.backgroundColor)}${color('Header band', 'headerBackgroundColor', s.headerBackgroundColor)}
-    ${color('Text color', 'textColor', s.textColor)}${color('Header text color', 'headerTextColor', s.headerTextColor)}
+    ${color('Text color', 'textColor', s.textColor)}${color('Header text color', 'headerTextColor', s.headerTextColor)}${color('Selected medium color (left list)', 'activeColor', s.activeColor)}
     <p><button type="button" data-act="resetall">Reset all colors to defaults</button></p>
     <label>Text size: <output id="sz">${esc(s.textSizePercent)}</output>%<input type="range" name="textSizePercent" min="80" max="150" value="${esc(s.textSizePercent)}"></label>
     ${field('Seconds each image shows', 'imageDisplaySeconds', s.imageDisplaySeconds, 'type="number" min="1" max="30"')}
@@ -121,7 +121,7 @@
     const { act, id, tab } = b.dataset;
     if (act === 'reset' || act === 'resetall') {
       const f = $('#setform'); if (!f) return;
-      (act === 'reset' ? [b.dataset.field] : ['backgroundColor', 'headerBackgroundColor', 'textColor', 'headerTextColor']).forEach((n) => { f.elements[n].value = DEF[n]; f.elements[n].dispatchEvent(new Event('input', { bubbles: true })); });
+      (act === 'reset' ? [b.dataset.field] : ['backgroundColor', 'headerBackgroundColor', 'textColor', 'headerTextColor', 'activeColor']).forEach((n) => { f.elements[n].value = DEF[n]; f.elements[n].dispatchEvent(new Event('input', { bubbles: true })); });
       flash('Colors reset. Click “Save settings” to keep the change.'); return;
     }
     if (act === 'out') { localStorage.removeItem('bha_session'); session = null; S.note = null; render(); }
@@ -155,7 +155,7 @@
     });
     else if (id === 'setform') guard(async () => {
       flash('Saving…');
-      const d = { ...S.settings }; ['siteName', 'tagline', 'heroTitle', 'heroDescription', 'aboutTitle', 'aboutText', 'contactText', 'contactEmail', 'backgroundColor', 'headerBackgroundColor', 'textColor', 'headerTextColor'].forEach((k) => { d[k] = String(f.get(k) || '').trim(); });
+      const d = { ...S.settings }; ['siteName', 'tagline', 'heroTitle', 'heroDescription', 'aboutTitle', 'aboutText', 'contactText', 'contactEmail', 'backgroundColor', 'headerBackgroundColor', 'textColor', 'headerTextColor', 'activeColor'].forEach((k) => { d[k] = String(f.get(k) || '').trim(); });
       d.textSizePercent = Number(f.get('textSizePercent')) || 100; d.imageDisplaySeconds = Math.min(30, Math.max(1, Number(f.get('imageDisplaySeconds')) || 3));
       d.mediums = String(f.get('mediums')).split('\n').map((x) => x.trim()).filter(Boolean);
       await api('/rest/v1/site_settings', { method: 'POST', json: { id: 1, settings: d }, headers: { Prefer: 'resolution=merge-duplicates,return=representation' } });
