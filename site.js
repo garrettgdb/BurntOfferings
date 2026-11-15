@@ -87,6 +87,7 @@
     headerBackgroundColor: '#291f30',
     textColor: '#291f30',
     headerTextColor: '#efe9d7',
+    activeColor: '#873b42',
     mediums: ['Mixed Media', 'Acrylic Painting', 'Woodburning', 'Pastels', 'Illustration'],
   };
 
@@ -121,6 +122,7 @@
     root.setProperty('--header-background', hex(s.headerBackgroundColor, DEFAULTS.headerBackgroundColor));
     root.setProperty('--ink', hex(s.textColor, DEFAULTS.textColor));
     root.setProperty('--header-text', hex(s.headerTextColor, DEFAULTS.headerTextColor));
+    root.setProperty('--active', hex(s.activeColor, DEFAULTS.activeColor));
     root.setProperty('--text-scale', String(s.textSizePercent / 100));
 
     const name = clean(s.siteName, DEFAULTS.siteName);
