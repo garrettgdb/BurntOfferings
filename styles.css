@@ -176,3 +176,5 @@ button:focus-visible, a:focus-visible { outline: 2px solid #bb4e3b; outline-offs
   .footer { grid-template-columns: 1fr; padding: 28px 22px 16px; }
   .copyright { grid-column: 1; text-align: left; }
 }
+.art-stage { background: color-mix(in srgb, var(--header-background) 88%, white); }
+.art-stage > img { object-fit: contain; }
