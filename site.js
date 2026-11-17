@@ -98,7 +98,8 @@
     s.mediums = (Array.isArray(s.mediums) ? s.mediums : []).map((m) => String(m).trim()).filter(Boolean);
     const artworks = (Array.isArray(rawArtworks) ? rawArtworks : [])
       .filter((a) => a && a.image)
-      .map((a) => ({
+      .map((a, i) => ({
+        id: String(a.id != null ? a.id : i + 1),
         title: clean(a.title, 'Untitled'),
         mediums: (Array.isArray(a.mediums) ? a.mediums : [a.mediums]).filter(Boolean).map((m) => String(m).trim()),
         image: a.image,
@@ -253,13 +254,16 @@
       if (!stage) {
         specimen.replaceChildren(
           el('div', { className: 'specimen-top', id: 'specimen-top' }),
-          el('div', { className: 'art-stage', id: 'stage' }),
+          el('div', { className: 'art-stage', id: 'stage' }, el('a', { className: 'stage-link' })),
           el('div', { className: 'specimen-caption', id: 'specimen-caption' }),
           el('p', { className: 'placeholder-note', id: 'placeholder-note', hidden: true }),
         );
         stage = $('.art-stage', specimen);
       }
       specimen.setAttribute('aria-live', state.paused || state.note ? 'polite' : 'off');
+      const link = $('.stage-link', stage);
+      link.href = new URL(`artwork/?id=${encodeURIComponent(work.id)}`, ROOT).href;
+      link.setAttribute('aria-label', `View ${work.title} in detail`);
 
       // top bar
       const noteBtn = el('button', {
@@ -319,6 +323,22 @@
       schedule();
     };
 
+    // Swipe left/right on the artwork to move between pieces (touch screens).
+    let tx = 0, ty = 0, swiped = false;
+    specimen.addEventListener('touchstart', (e) => {
+      if (!e.target.closest('.art-stage')) return;
+      tx = e.touches[0].clientX; ty = e.touches[0].clientY;
+    }, { passive: true });
+    specimen.addEventListener('touchend', (e) => {
+      if (!e.target.closest('.art-stage') || !e.changedTouches.length) return;
+      const dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+      if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+        swiped = true; setTimeout(() => { swiped = false; }, 400);
+        go(dx < 0 ? 1 : -1);
+      }
+    }, { passive: true });
+    specimen.addEventListener('click', (e) => { if (swiped && e.target.closest('.stage-link')) e.preventDefault(); });
+
     const renderAll = () => { renderList(); renderSpecimen(); };
     renderAll();
   };
@@ -347,6 +367,35 @@
         ...(isEmail(email) ? [el('a', { className: 'contact-email', href: `mailto:${email}`, textContent: email })] : [])));
   };
 
+  /* ---------- Artwork detail page ---------- */
+  const initDetail = ({ settings: s, artworks }) => {
+    const box = $('#content');
+    const id = new URLSearchParams(location.search).get('id');
+    const work = artworks.find((a) => a.id === id);
+    const back = el('a', { className: 'detail-back', href: new URL('./', ROOT).href, textContent: '← All artwork' });
+    if (!work) {
+      box.replaceChildren(back, el('div', { className: 'empty-box' },
+        el('h2', { textContent: 'We couldn’t find that piece.' }),
+        el('p', { textContent: 'It may have been removed or renamed.' })));
+      return;
+    }
+    document.title = `${work.title} — ${clean(s.siteName, DEFAULTS.siteName)}`;
+    const full = imageUrl(work.image);
+    const note = (work.description || '').trim();
+    box.replaceChildren(
+      back,
+      el('figure', { className: 'detail-figure' },
+        el('a', { href: full, target: '_blank', rel: 'noopener', title: 'Open full size' }, el('img', { src: full, alt: work.title }))),
+      el('div', { className: 'detail-body' },
+        el('span', { className: 'overline', textContent: work.mediums.join(' · ') }),
+        el('h1', { textContent: work.title }),
+        ...(work.material ? [el('p', { className: 'detail-material', textContent: work.material })] : []),
+        ...(note ? [el('div', { className: 'detail-note' },
+          el('span', { className: 'overline', textContent: 'Field notes' }),
+          ...note.split(/\n\s*\n/).map((t) => el('p', { textContent: t.trim() })))] : []),
+        ...(work.placeholder ? [el('p', { className: 'placeholder-note', textContent: 'This image is a generated placeholder, not a verified original artwork by Brittany Hunter.' })] : [])));
+  };
+
   /* ---------- boot ---------- */
   const boot = async () => {
     const page = document.body.dataset.page;
@@ -357,6 +406,7 @@
       if (page === 'artwork') initArtwork(data);
       else if (page === 'about') initAbout(data);
       else if (page === 'contact') initContact(data);
+      else if (page === 'detail') initDetail(data);
     } catch (err) {
       console.error(err);
       if (target) target.replaceChildren(errorBlock(err.message, boot));
