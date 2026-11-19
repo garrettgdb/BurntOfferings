@@ -240,5 +240,27 @@
     "material": "Woodburning and Acrylic",
     "description": "",
     "placeholder": false
+  },
+  {
+    "id": 24,
+    "title": "Spring in Zion",
+    "mediums": [
+      "Pastels"
+    ],
+    "image": "images/synced/1795111478759-spring-in-zion.jpg",
+    "material": "Oil Pastel",
+    "description": "My cousin almost fell down this red rock (she's fine)",
+    "placeholder": false
+  },
+  {
+    "id": 25,
+    "title": "Franken' Fender",
+    "mediums": [
+      "Woodburning"
+    ],
+    "image": "images/synced/1795111765426-franken-fender.jpg",
+    "material": "Woodburning ",
+    "description": "Built by the talented Garrett B.",
+    "placeholder": false
   }
 ]
