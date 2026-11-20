@@ -262,5 +262,16 @@
     "material": "Woodburning ",
     "description": "Built by the talented Garrett B.",
     "placeholder": false
+  },
+  {
+    "id": 26,
+    "title": "Blood Desert",
+    "mediums": [
+      "Acrylic Painting"
+    ],
+    "image": "images/synced/1795128624756-blood-desert.jpg",
+    "material": "",
+    "description": "",
+    "placeholder": false
   }
 ]
